@@ -9,7 +9,7 @@ def Throneroomfight():
     global crystal
     print("You have a no chance to defeat me !")
     print("Unless you destroy my crystal. It powers my armor!")
-    userPrint = ""
+    userInput = ""
     while userInput not in actions:
         print("I have destroyed it!/The crystal?")
         userInput = input()
@@ -40,7 +40,7 @@ def Throneroomreturn():
     global weapen
     global key
     global crystal
-    userPrint = ""
+    userInput = ""
     while userInput not in actions:
         print("Optins: Yes sir/No way! The fight is inevitable")
         userInput = input()
@@ -57,11 +57,11 @@ def Throneroom1():
     global weapen
     global key
     global crystal
-    print("*The king and his whole kingdom were slaughtered.")
+    print("*The king and his whole kingdom were slaughtered.*")
     print("THIS KINGDOM BELONGS TO ME !!!")
     userInput = ""
     while userInput not in actions:
-        print("Options: Who are you/Stop talking and go")
+        print("Options: Who are you?/Stop talking and go")
         userInput = input()
         if userInput == "Who are you?":
             print("*I am the lord of all monsters from a dark.*")
@@ -107,7 +107,7 @@ def LockedDoor():
                 weapen = True
                 LockedDoor()
             else:
-                print("You cannot unlocked the door! Maybe find a ... key?")
+                print("*You cannot unlocked the door! Maybe find a ... key?*")
                 LockedDoor()
         #elif userInput == "left":
             #if weapen and key:
@@ -127,18 +127,18 @@ def LockedDoor():
             print("PLease enter a valid option")
             
 def Room3():
-    directions = ["forward","backward"]
+    directions = ["room with locked door","room with guards"]
     global weapen
     global key
     global crystal
     print("*In this room is nothing which can interested you.*")
     userInput = ""
     while userInput not in directions:
-        print("Options: forward/backward")
+        print("Options: room with locked door/room with guards")
         userInput = input()
-        if userInput == "forward":
+        if userInput == "room with locked door":
             LockedDoor()
-        elif userInput == "backward":
+        elif userInput == "room with guards":
             Guards()
         else:
             print("PLease enter a valid option.")
@@ -243,7 +243,7 @@ def Prison():
         print("Options: forward/backward")
         userInput = input()
         if userInput == "forward":
-            print("*You pick up the mysterious key.*")
+            print("*You have pick up the mysterious key.*")
             key = True
             PrisonEntrance()
         elif userInput == "backward":
