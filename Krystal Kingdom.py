@@ -22,6 +22,8 @@ def GuardsFight():
         
 def Guards():
     directions = ["left","backward"]
+    global weapen
+    global key
     print("*You have entered a room and saw a four well-armored guards.*")
     print("*They must protects something important!*")
     userInput = ""
@@ -39,6 +41,8 @@ def Guards():
 
 def SleepingMonster():
     actions = ["flee forward","fight","flee backward"]
+    global weapen
+    global key
     print("*A giant monster lies in room, seeming to be asleep.*")
     userInput = ""
     while userInput not in actions:
@@ -59,6 +63,8 @@ def SleepingMonster():
 
 def Gate():
     directions = ["left","right","backward","forward"]
+    global weapen
+    global key
     print("*You have entered a room with a big gate in front of you.*")
     userInput = ""
     while userInput not in directions:
@@ -78,6 +84,7 @@ def Gate():
 
 def Prison():
     directions = ["forward","backward"]
+    global weapen
     global key
     print("*You have entered a prison and saw a skeleton and a shiny thing on the ground.*")
     userInput = ""
@@ -92,6 +99,8 @@ def Prison():
             PrisonEntrance()
 def PrisonEntrance():
   directions = ["left","forward","backward"]
+  global weapen
+  global key
   print("*You have entered a room and saw the next room which is forward look like a prison.*")
   userInput = ""
   while userInput not in directions:
@@ -108,6 +117,8 @@ def PrisonEntrance():
 
 def Ruinedroom():
   directions = ["backward"]
+  global weapen
+  global key
   print("*You have entered a room which is ruined and you cannot go forward.*")
   userInput = ""
   while userInput not in directions:
@@ -120,6 +131,8 @@ def Ruinedroom():
 
 def Room2():
   directions = ["backward","left","forward"]
+  global weapen
+  global key
   print("*In this room is a big picture of a king.*")
   userInput = ""
   while userInput not in directions:
@@ -137,6 +150,8 @@ def Room2():
 
 def Room1():
   directions = ["backward","forward"]
+  global weapen
+  global key
   print("*In this room is nothing which can interested you.*")
   userInput = ""
   while userInput not in directions:
@@ -152,6 +167,8 @@ def Room1():
 
 def introScene():
   directions = ["left","right","backward""forward"]
+  global weapen
+  global key
   print("*You have entered the hall and you can go to the left, right, backward or forward.*")
   userInput = ""
   while userInput not in directions:
