@@ -18,7 +18,7 @@ def Throneroomfight():
            print("I will check that!")
            if crystal:
                print("Oh no! My armor is not shining")
-               print("*You immediately regognize that you have chance to kill him so you cut him in a half.")
+               print("*You immediately recognize that you have chance to kill him so you cut him in a half.")
                print("*You have finished the game at the best ending!")
                quit()
            else:
