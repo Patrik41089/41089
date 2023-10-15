@@ -2,9 +2,92 @@ key = False
 weapen = False
 crystal = False
 
-def Throneroom():
-    
+def Throneroomfight():
+    actions = ["I have destroyed it!","The crystal?"]
+    global weapen
+    global key
+    global crystal
+    print("You have a no chance to defeat me !")
+    print("Unless you destroy my crystal. It powers my armor!")
+    userPrint = ""
+    while userInput not in actions:
+        print("I have destroyed it!/The crystal?")
+        userInput = input()
+        if userInput == "I have destroyed it!":
+           print("WHAT ! WHAT HAVE YOU DONE TO MY CRYSTAL !!!")
+           print("I will check that!")
+           if crystal:
+               print("Oh no! My armor is not shining")
+               print("*You immediately regognize that you have chance to kill him so you cut him in a half.")
+               print("*You have finished the game at the best ending!")
+               quit()
+           else:
+               print("My armor is shining. YOU LIED TO ME !!!")
+               print("YOU THINK THAT YOU CAN LIE TO ME !!!")
+               print("*He chopped you into a small pieces*")
+               print("*You have finished the game at the trecherous ending.")
+               quit()
+        elif userInput == "The crystal?":
+            print("HA HA HA yeah, yeah that is what i am talking about. YOU HAVE A NO CHANCE !!!")
+            print("*He chopped you into a small pieces*")
+            print("*You have finished the game at the worst ending!")
+            quit()
+        else:
+            print("Please enter a valid option.")
 
+def Throneroomreturn():
+    actions = ["Yes sir", "No way! The fight is inevitable"]
+    global weapen
+    global key
+    global crystal
+    userPrint = ""
+    while userInput not in actions:
+        print("Optins: Yes sir/No way! The fight is inevitable")
+        userInput = input()
+        if userInput == "Yes sir":
+           print("You leaved the castle.")
+           print("*You have finished the game at the neutral ending.")
+        elif userInput == "No way! The fight is inevitable":
+            Throneroomfight()
+        else:
+            print("Please enter a valid option.")
+            
+def Throneroom1():
+    actions = ["Who are you?","Stop talking and go fight with me!"]
+    global weapen
+    global key
+    global crystal
+    print("*The king and his whole kingdom were slaughtered.")
+    print("THIS KINGDOM BELONGS TO ME !!!")
+    userInput = ""
+    while userInput not in actions:
+        print("Options: Who are you/Stop talking and go")
+        userInput = input()
+        if userInput == "Who are you?":
+            print("*I am the lord of all monsters from a dark.*")
+            print("*NOW COME BACK FROM WHERE YOU CAME !!!*")
+            Throneroomreturn()
+        elif userInput == "Stop talking and go fight with me!":
+            Throneroomfight()
+        else:
+            print("Please enter a valid option.")
+
+def Throneroom():
+    actions = ["This castle belongs my king!"]
+    global weapen
+    global key
+    global crystal
+    print("*You have entered the throne room and saw a big creature in a throne*")
+    print("*The creature immediately stands up and says:*" "Who dares to enter my castle!")
+    userInput = ""
+    while userInput not in actions:
+        print("Option: This castle belongs my king!")
+        userInput = input()
+        if userInput == "This castle belongs my king!":
+            Throneroom1()
+        else:
+            print("PLease enter a valid option.")
+        
 def LockedDoor():
     directions = ["forward","backward","right","left"]
     global weapen
@@ -18,9 +101,9 @@ def LockedDoor():
         userInput = input()
         if userInput == "left":
             if key:
-                print("*You locked the door and saw that the room is a forge*")
-                print("*On the anvil you found a mighty sword*")
-                print("*You have picked up that sword and leaved the room*")
+                print("*You locked the door and saw that the room is a forge.*")
+                print("*On the anvil you found a mighty sword.*")
+                print("*You have picked up that sword and leaved the room.*")
                 weapen = True
                 LockedDoor()
             elif weapen:
@@ -35,6 +118,8 @@ def LockedDoor():
            Room1()
         elif userInput == "forward":
             Room3()
+        else:
+            print("PLease enter a valid option")
             
 def Room3():
     directions = ["forward","backward"]
@@ -70,6 +155,7 @@ def GuardsFight():
                 Throneroom()
             else:
                 print("*Your old sword broke and the guards cut your head off.*")
+                print("*You have finished the game at the bad ending.*")
                 quit()
        elif userInput == "backward":
             Guards()
