@@ -7,7 +7,7 @@ def Throneroomfight():
     global weapen
     global key
     global crystal
-    print("You have a no chance to defeat me !")
+    print("You have a no chance to defeat me!")
     print("Unless you destroy my crystal. It powers my armor!")
     userInput = ""
     while userInput not in actions:
@@ -17,7 +17,7 @@ def Throneroomfight():
            print("WHAT ! WHAT HAVE YOU DONE TO MY CRYSTAL !!!")
            print("I will check that!")
            if crystal:
-               print("Oh no! My armor is not shining")
+               print("Oh no! My armor is not shining.")
                print("*You immediately recognize that you have chance to kill him so you cut him in a half.")
                print("*You have finished the game at the best ending!")
                quit()
@@ -31,8 +31,9 @@ def Throneroomfight():
             if crystal:
                print("Oh no! My armor is not shining")
                print("You destroyed my crystal WITHOUT REALIZING IT !!!")
-               print("*You immediately recognize that you have a chance to kill him, so you cut him in a half.")
-               print("*You have finished the game at the close enought ending!")
+               print("*You immediately recognize that you have a chance to kill him, so you cut him in a half.*")
+               print("*You have finished the game at the close enought ending!*")
+               quit()
             else:
                 print("HA HA HA yeah, yeah that is what i am talking about. YOU DO NOT HAVE A CHANCE !!!")
                 print("*He chopped you into a small pieces*")
@@ -67,7 +68,7 @@ def Throneroom1():
     print("THIS KINGDOM BELONGS TO ME !!!")
     userInput = ""
     while userInput not in actions:
-        print("Options: Who are you?/Stop talking and go")
+        print("Options: Who are you?/Stop talking and go fight with me!")
         userInput = input()
         if userInput == "Who are you?":
             print("*I am the lord of all monsters from a dark.*")
