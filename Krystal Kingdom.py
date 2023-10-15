@@ -93,7 +93,7 @@ def LockedDoor():
     global weapen
     global key
     global crystal
-    print("*You have entered a room with locked doors on the left side.*")
+    print("*You have entered a room with a locked door on the left side.*")
     print("*They must guard something important.*")
     userInput = ""
     while userInput not in directions:
@@ -106,12 +106,17 @@ def LockedDoor():
                 print("*You have picked up that sword and leaved the room.*")
                 weapen = True
                 LockedDoor()
-            elif weapen:
-                print("*You have already found a weapen!*")
-                print("*So for what are you looking for?*")
             else:
                 print("You cannot unlocked the door! Maybe find a ... key?")
                 LockedDoor()
+        #elif userInput == "left":
+            #if weapen and key:
+                #print("*You have already found a weapen!*")
+                #print("*So for what are you looking for?*")
+                #LockedDoor()
+            #else:
+                #print("You cannot unlocked the door! Maybe find a ... key?")
+                #LockedDoor()
         elif userInput == "right":
             Gate()
         elif userInput == "backward":
@@ -279,6 +284,7 @@ def Ruinedroom():
     elif userInput == "destroy the crystal":
         print("*After you destroyed the crystal, it stopped shining.*")
         print("*Looks like nothing else happened*")
+        print("YOu have returned to a previous room.")
         crystal = True
         Room2()
     else: 
