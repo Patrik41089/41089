@@ -25,13 +25,19 @@ def Throneroomfight():
                print("My armor is shining. YOU LIED TO ME !!!")
                print("YOU THINK THAT YOU CAN LIE TO ME !!!")
                print("*He chopped you into a small pieces*")
-               print("*You have finished the game at the trecherous ending.")
+               print("*You have finished the game at the trecherous ending.*")
                quit()
         elif userInput == "The crystal?":
-            print("HA HA HA yeah, yeah that is what i am talking about. YOU HAVE A NO CHANCE !!!")
-            print("*He chopped you into a small pieces*")
-            print("*You have finished the game at the worst ending!")
-            quit()
+            if crystal:
+               print("Oh no! My armor is not shining")
+               print("You destroyed my crystal WITHOUT REALIZING IT !!!")
+               print("*You immediately recognize that you have a chance to kill him, so you cut him in a half.")
+               print("*You have finished the game at the close enought ending!")
+            else:
+                print("HA HA HA yeah, yeah that is what i am talking about. YOU DO NOT HAVE A CHANCE !!!")
+                print("*He chopped you into a small pieces*")
+                print("*You have finished the game at the worst ending!*")
+                quit()
         else:
             print("Please enter a valid option.")
 
