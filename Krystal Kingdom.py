@@ -1,12 +1,15 @@
 key = False
 weapen = False
+crystal = False
 
-
+def Throneroom():
+    
 
 def LockedDoor():
     directions = ["forward","backward","right","left"]
     global weapen
     global key
+    global crystal
     print("*You have entered a room with locked doors on the left side.*")
     print("*They must guard something important.*")
     userInput = ""
@@ -16,7 +19,7 @@ def LockedDoor():
         if userInput == "left":
             if key:
                 print("*You locked the door and saw that the room is a forge*")
-                print("*On the anvil you found a sword which is powered by mighty crystal*")
+                print("*On the anvil you found a mighty sword*")
                 print("*You have picked up that sword and leaved the room*")
                 weapen = True
                 LockedDoor()
@@ -37,6 +40,7 @@ def Room3():
     directions = ["forward","backward"]
     global weapen
     global key
+    global crystal
     print("*In this room is nothing which can interested you.*")
     userInput = ""
     while userInput not in directions:
@@ -54,6 +58,7 @@ def GuardsFight():
     actions = ["fight","backward"]
     global weapen
     global key
+    global crystal
     userInput = ""
     while userInput not in actions:
        print("Options: fight/backward")
@@ -75,6 +80,7 @@ def Guards():
     directions = ["left","backward"]
     global weapen
     global key
+    global crystal
     print("*You have entered a room and saw a four well-armored guards.*")
     print("*They must protects something important!*")
     userInput = ""
@@ -94,6 +100,7 @@ def SleepingMonster():
     actions = ["flee forward","fight","flee backward"]
     global weapen
     global key
+    global crystal
     print("*A giant monster lies in room, seeming to be asleep.*")
     userInput = ""
     while userInput not in actions:
@@ -116,6 +123,7 @@ def Gate():
     directions = ["left","right","backward","forward"]
     global weapen
     global key
+    global crystal
     print("*You have entered a room with a big gate in front of you.*")
     userInput = ""
     while userInput not in directions:
@@ -137,6 +145,7 @@ def Prison():
     directions = ["forward","backward"]
     global weapen
     global key
+    global crystal
     print("*You have entered a prison and saw a skeleton and a shiny thing on the ground.*")
     userInput = ""
     while userInput not in directions:
@@ -153,6 +162,7 @@ def PrisonEntrance():
   directions = ["left","forward","backward"]
   global weapen
   global key
+  global crystal
   print("*You have entered a room and saw the next room which is forward look like a prison.*")
   userInput = ""
   while userInput not in directions:
@@ -168,16 +178,23 @@ def PrisonEntrance():
       print("Please enter a valid option.")
 
 def Ruinedroom():
-  directions = ["backward"]
+  directions = ["backward","destroy the crystal"]
   global weapen
   global key
+  global crystal
   print("*You have entered a room which is ruined and you cannot go forward.*")
+  print("*On the ground at the back is laying a crystal.*")
   userInput = ""
   while userInput not in directions:
-    print("Options: backward")
+    print("Options: backward/destroy the crystal")
     userInput = input()
     if userInput == "backward":
       Room2()
+    elif userInput == "destroy the crystal":
+        print("*After you destroyed the crystal, it stopped shining.*")
+        print("*Looks like nothing else happened*")
+        crystal = True
+        Room2()
     else: 
       print("Please enter a valid option.")
 
@@ -185,6 +202,7 @@ def Room2():
   directions = ["backward","left","forward"]
   global weapen
   global key
+  global crystal
   print("*In this room is a big picture of a king.*")
   userInput = ""
   while userInput not in directions:
@@ -204,6 +222,7 @@ def Room1():
   directions = ["backward","forward"]
   global weapen
   global key
+  global crystal
   print("*In this room is nothing which can interested you.*")
   userInput = ""
   while userInput not in directions:
@@ -221,6 +240,7 @@ def introScene():
   directions = ["left","right","backward""forward"]
   global weapen
   global key
+  global crystal
   print("*You have entered the hall and you can go to the left, right, backward or forward.*")
   userInput = ""
   while userInput not in directions:
