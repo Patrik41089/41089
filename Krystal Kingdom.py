@@ -1,7 +1,56 @@
 key = False
 weapen = False
 
+
+
+def LockedDoor():
+    directions = ["forward","backward","right","left"]
+    global weapen
+    global key
+    print("*You have entered a room with locked doors on the left side.*")
+    print("*They must guard something important.*")
+    userInput = ""
+    while userInput not in directions:
+        print("Options: forward/backward/left/right")
+        userInput = input()
+        if userInput == "left":
+            if key:
+                print("*You locked the door and saw that the room is a forge*")
+                print("*On the anvil you found a sword which is powered by mighty crystal*")
+                print("*You have picked up that sword and leaved the room*")
+                weapen = True
+                LockedDoor()
+            elif weapen:
+                print("*You have already found a weapen!*")
+                print("*So for what are you looking for?*")
+            else:
+                print("You cannot unlocked the door! Maybe find a ... key?")
+                LockedDoor()
+        elif userInput == "right":
+            Gate()
+        elif userInput == "backward":
+           Room1()
+        elif userInput == "forward":
+            Room3()
+            
+def Room3():
+    directions = ["forward","backward"]
+    global weapen
+    global key
+    print("*In this room is nothing which can interested you.*")
+    userInput = ""
+    while userInput not in directions:
+        print("Options: forward/backward")
+        userInput = input()
+        if userInput == "forward":
+            LockedDoor()
+        elif userInput == "backward":
+            Guards()
+        else:
+            print("PLease enter a valid option.")
+            
 def GuardsFight():
+    print("*Now you have a hard decision.*")
     actions = ["fight","backward"]
     global weapen
     global key
@@ -12,6 +61,8 @@ def GuardsFight():
        if userInput == "fight":
             if weapen:
                 print("*You have killed easily these guards.*")
+                print("*After you killed the guards and opened the door, you saw, the hallway is leading to the throne room*")
+                Throneroom()
             else:
                 print("*Your old sword broke and the guards cut your head off.*")
                 quit()
@@ -71,7 +122,7 @@ def Gate():
         print("Options: forward/left/right/backward")
         userInput = input()
         if userInput == "left":
-            LockedDoors()
+            LockedDoor()
         elif userInput == "right":
             PrisonEntrance()
         elif userInput == "forward":
@@ -97,6 +148,7 @@ def Prison():
             PrisonEntrance()
         elif userInput == "backward":
             PrisonEntrance()
+            
 def PrisonEntrance():
   directions = ["left","forward","backward"]
   global weapen
@@ -161,7 +213,7 @@ def Room1():
       print("*You came back to the hall.*")
       introScene()
     elif userInput == "forward":
-        LockedDoors()
+        LockedDoor()
     else: 
       print("Please enter a valid option.")
 
