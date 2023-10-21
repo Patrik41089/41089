@@ -1,10 +1,10 @@
 key = False
-weapen = False
+weapon = False
 crystal = False
 
 def Throneroomfight():
     actions = ["I have destroyed it!","The crystal?"]
-    global weapen
+    global weapon
     global key
     global crystal
     print("You have a no chance to defeat me!")
@@ -44,7 +44,7 @@ def Throneroomfight():
 
 def Throneroomreturn():
     actions = ["Yes sir", "No way! The fight is inevitable"]
-    global weapen
+    global weapon
     global key
     global crystal
     userInput = ""
@@ -61,7 +61,7 @@ def Throneroomreturn():
             
 def Throneroom1():
     actions = ["Who are you?","Stop talking and go fight with me!"]
-    global weapen
+    global weapon
     global key
     global crystal
     print("*The king and his whole kingdom were slaughtered.*")
@@ -81,7 +81,7 @@ def Throneroom1():
 
 def Throneroom():
     actions = ["This castle belongs my king!"]
-    global weapen
+    global weapon
     global key
     global crystal
     print("*You have entered the throne room and saw a big creature in a throne*")
@@ -94,10 +94,29 @@ def Throneroom():
             Throneroom1()
         else:
             print("PLease enter a valid option.")
-        
+            
+def Forge():
+    actions = ["Pick up the sword","backward"]    
+    global weapon
+    global key
+    global crystal
+    print("*You have entered a forge and saw a sword, which is on the anvil.*")
+    userInput = ""
+    while userInput not in actions:
+        print("Options: pick up the sword/backward")
+        userInput = input()
+        if userInput == "pick up the sword":
+            print("*You have picked up the mighty sword and leaved the room.*")
+            weapon = True
+            LockedDoor()
+        elif userInput == "backward":
+            print("*You returned to the previous room.*")
+        else:
+            print("Please enter a valid option.")
+            
 def LockedDoor():
     directions = ["forward","backward","right","left"]
-    global weapen
+    global weapon
     global key
     global crystal
     print("*You have entered a room with a locked door on the left side.*")
@@ -108,22 +127,11 @@ def LockedDoor():
         userInput = input()
         if userInput == "left":
             if key:
-                print("*You locked the door and saw that the room is a forge.*")
-                print("*On the anvil you found a mighty sword.*")
-                print("*You have picked up that sword and leaved the room.*")
-                weapen = True
-                LockedDoor()
+                print("*You unlocked the door and entered the room. The room is a forge.*")
+                Forge()
             else:
                 print("*You cannot unlocked the door! Maybe find a ... key?*")
                 LockedDoor()
-        #elif userInput == "left":
-            #if weapen and key:
-                #print("*You have already found a weapen!*")
-                #print("*So for what are you looking for?*")
-                #LockedDoor()
-            #else:
-                #print("You cannot unlocked the door! Maybe find a ... key?")
-                #LockedDoor()
         elif userInput == "right":
             Gate()
         elif userInput == "backward":
@@ -135,7 +143,7 @@ def LockedDoor():
             
 def Room3():
     directions = ["room with locked door","room with guards"]
-    global weapen
+    global weapon
     global key
     global crystal
     print("*In this room is nothing which can interested you.*")
@@ -153,7 +161,7 @@ def Room3():
 def GuardsFight():
     print("*Now you have a hard decision.*")
     actions = ["fight","backward"]
-    global weapen
+    global weapon
     global key
     global crystal
     userInput = ""
@@ -161,7 +169,7 @@ def GuardsFight():
        print("Options: fight/backward")
        userInput = input()
        if userInput == "fight":
-            if weapen:
+            if weapon:
                 print("*You have killed easily these guards.*")
                 print("*After you killed the guards and opened the door, you saw, the hallway is leading to the throne room*")
                 Throneroom()
@@ -176,7 +184,7 @@ def GuardsFight():
         
 def Guards():
     directions = ["left","backward"]
-    global weapen
+    global weapon
     global key
     global crystal
     print("*You have entered a room and saw a four well-armored guards.*")
@@ -196,7 +204,7 @@ def Guards():
 
 def SleepingMonster():
     actions = ["flee forward","fight","flee backward"]
-    global weapen
+    global weapon
     global key
     global crystal
     print("*A giant monster lies in room, seeming to be asleep.*")
@@ -219,7 +227,7 @@ def SleepingMonster():
 
 def Gate():
     directions = ["left","right","backward","forward"]
-    global weapen
+    global weapon
     global key
     global crystal
     print("*You have entered a room with a big gate in front of you.*")
@@ -241,7 +249,7 @@ def Gate():
 
 def Prison():
     directions = ["forward","backward"]
-    global weapen
+    global weapon
     global key
     global crystal
     print("*You have entered a prison and saw a skeleton and a shiny thing on the ground.*")
@@ -258,7 +266,7 @@ def Prison():
             
 def PrisonEntrance():
   directions = ["left","forward","backward"]
-  global weapen
+  global weapon
   global key
   global crystal
   print("*You have entered a room and saw the next room which is forward look like a prison.*")
@@ -277,7 +285,7 @@ def PrisonEntrance():
 
 def Ruinedroom():
   directions = ["backward","destroy the crystal"]
-  global weapen
+  global weapon
   global key
   global crystal
   print("*You have entered a room which is ruined and you cannot go forward.*")
@@ -299,7 +307,7 @@ def Ruinedroom():
 
 def Room2():
   directions = ["backward","left","forward"]
-  global weapen
+  global weapon
   global key
   global crystal
   print("*In this room is a big picture of a king.*")
@@ -319,7 +327,7 @@ def Room2():
 
 def Room1():
   directions = ["backward","forward"]
-  global weapen
+  global weapon
   global key
   global crystal
   print("*In this room is nothing which can interested you.*")
@@ -337,7 +345,7 @@ def Room1():
 
 def introScene():
   directions = ["left","right","backward""forward"]
-  global weapen
+  global weapon
   global key
   global crystal
   print("*You have entered the hall and you can go to the left, right, backward or forward.*")
@@ -358,12 +366,12 @@ def introScene():
 
 if __name__ == "__main__":
   while True:
-    print("Welcome to Krystal kingdom!")
-    print("You are a knight who returns home from an expedition, because you have heard that your castle has been attacked.")
-    print("You have seen a ruined village and fleeing villagers.")
-    print("One villager told you, that the castle is invaded by monsters.")
-    print("You are standing at the entrance to the hall and there is none who protects it.")
-    print("You realize that you forgot to bought a new sword, beacause you have only a sword which is in a bad condition from an expedition.")
+    print("*Welcome to Krystal kingdom!*")
+    print("*You are a knight who returns home from an expedition, because you have heard that your castle has been attacked.*")
+    print("*You have seen a ruined village and fleeing villagers.*")
+    print("*One villager told you, that the castle is invaded by monsters.*")
+    print("*You are standing at the entrance to the hall and there is none who protects it.*")
+    print("*You realize that you forgot to bought a new sword, beacause you have only a sword which is in a bad condition from an expedition.*")
     print("So let's start with your name: ")
     name = input()
     print("Good luck, " +name+ ", you will need it.")
