@@ -93,7 +93,7 @@ def Throneroom():
         if userInput == "This castle belongs my king!":
             Throneroom1()
         else:
-            print("PLease enter a valid option.")
+            print("*PLease enter a valid option.*")
             
 def Forge():
     actions = ["Pick up the sword","backward"]    
@@ -106,13 +106,19 @@ def Forge():
         print("Options: pick up the sword/backward")
         userInput = input()
         if userInput == "pick up the sword":
-            print("*You have picked up the mighty sword and leaved the room.*")
-            weapon = True
-            LockedDoor()
+            if weapon:
+                print("*You have already pick up the mighty sword!*")
+                print("*So for what are you looking for?!")
+                print("*You returned to the previous room.*")
+            else:
+                print("*You have picked up the mighty sword and leaved the room.*")
+                weapon = True
+                LockedDoor()
         elif userInput == "backward":
             print("*You returned to the previous room.*")
+            LockedDoor()
         else:
-            print("Please enter a valid option.")
+            print("*Please enter a valid option.*")
             
 def LockedDoor():
     directions = ["forward","backward","right","left"]
@@ -139,7 +145,7 @@ def LockedDoor():
         elif userInput == "forward":
             Room3()
         else:
-            print("PLease enter a valid option")
+            print("*PLease enter a valid option.*")
             
 def Room3():
     directions = ["room with locked door","room with guards"]
@@ -156,7 +162,7 @@ def Room3():
         elif userInput == "room with guards":
             Guards()
         else:
-            print("PLease enter a valid option.")
+            print("*PLease enter a valid option.*")
             
 def GuardsFight():
     print("*Now you have a hard decision.*")
@@ -180,7 +186,7 @@ def GuardsFight():
        elif userInput == "backward":
             Guards()
        else:
-            print("PLease enter a valid option.")
+            print("*PLease enter a valid option.*")
         
 def Guards():
     directions = ["left","backward"]
@@ -200,7 +206,7 @@ def Guards():
         elif userInput == "forward":
             GuardsFight()
         else: 
-            print("Please enter a valid option.")
+            print("*Please enter a valid option.*")
 
 def SleepingMonster():
     actions = ["flee forward","fight","flee backward"]
@@ -223,7 +229,7 @@ def SleepingMonster():
             print("*A giant monster did not wake up and you flee forward to the next room.*")
             Guards()
         else: 
-            print("Please enter a valid option.")
+            print("*Please enter a valid option.*")
 
 def Gate():
     directions = ["left","right","backward","forward"]
@@ -245,7 +251,7 @@ def Gate():
             print("*You came back to the hall.*")
             introScene()
         else: 
-            print("Please enter a valid option.")
+            print("*Please enter a valid option.*")
 
 def Prison():
     directions = ["forward","backward"]
@@ -281,7 +287,7 @@ def PrisonEntrance():
     elif userInput == "forward":
         Prison()
     else: 
-      print("Please enter a valid option.")
+      print("*Please enter a valid option.*")
 
 def Ruinedroom():
   directions = ["backward","destroy the crystal"]
@@ -298,12 +304,12 @@ def Ruinedroom():
       Room2()
     elif userInput == "destroy the crystal":
         print("*After you destroyed the crystal, it stopped shining.*")
-        print("*Looks like nothing else happened*")
-        print("YOu have returned to a previous room.")
+        print("*Looks like nothing else happened.*")
+        print("*You have returned to a previous room.*")
         crystal = True
         Room2()
     else: 
-      print("Please enter a valid option.")
+      print("*Please enter a valid option.*")
 
 def Room2():
   directions = ["backward","left","forward"]
@@ -323,7 +329,7 @@ def Room2():
     elif userInput == "forward":
       Ruinedroom()
     else: 
-      print("Please enter a valid option.")
+      print("*Please enter a valid option.*")
 
 def Room1():
   directions = ["backward","forward"]
@@ -341,7 +347,7 @@ def Room1():
     elif userInput == "forward":
         LockedDoor()
     else: 
-      print("Please enter a valid option.")
+      print("*Please enter a valid option.*")
 
 def introScene():
   directions = ["left","right","backward""forward"]
@@ -362,7 +368,7 @@ def introScene():
     elif userInput == "backward":
       print("*Some unknown force prevents you from going back.*")
     else: 
-      print("Please enter a valid option.")
+      print("*Please enter a valid option.*")
 
 if __name__ == "__main__":
   while True:
