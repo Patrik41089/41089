@@ -1,5 +1,5 @@
 # 41089
-Welcome to Krystal kingdom!
+Welcome to Krystal Kingdom!
 It is a texted game.
 
 You are a knight who returns home from an expedition, because you have heard that your castle has been attacked.
@@ -8,3 +8,5 @@ One villager told you, that the castle is invaded by monsters.
 
 The main goal is to figure it out what happend and save the kingdom at all cost!
 You must found a better weapon and stopped invasion by lord of monsters.
+
+* = The star symbol at the beginning and end in some sentences means a declarative sentence.
